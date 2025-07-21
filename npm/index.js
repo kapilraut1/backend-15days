@@ -1,16 +1,11 @@
-function calculateArea(width, height){
-    return width* height;
-}
+const express = require('express')
+const app = express()
+const port = 3000
 
-let width = 10,  height= 5;
+app.get('/', (req, res) => {
+  res.send('Hello Kapil!')
+})
 
-if(area >100){
-    console.log("Large area");
-}
-else{
-    console.log("Small area");
-}
-
-if(width +height >100){
-    console.log("area is greater than or equal to 100");
-}
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
