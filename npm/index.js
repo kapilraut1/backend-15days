@@ -1,4 +1,5 @@
 const express = require('express')
+const bodyParser = require('body-parser');
 const app = express()
 const port = 3000
 
@@ -29,9 +30,10 @@ app.get('/contact', (req, res, next) =>{
     Email: <input type="email" name="email" placeholder="Enter your email">
     <button type="submit">Submit</button>`);
 })
+app.use(bodyParser.urlencoded());
 
 app.post('/contact', (req, res)=>{
-  console.log("Form is received");
+  console.log("Form is received", req.body);
   res.send(`<h1> Thank you we will reach out to you soon!</h1>`);
 })
 app.listen(port, () => {
