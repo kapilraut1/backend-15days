@@ -9,9 +9,12 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(hostRouter);
 app.use(userRouter);
+
 const rootDir = require('./utils/pathUtil');
+app.use(express.static(path.join(rootDir, 'public')));
+
 app.use("/", (req, res)=>{
-    res.status(404).sendFile(path.join(rootDir, '404.html'));
+    res.status(404).sendFile(path.join(rootDir, 'views', '404.html'));
 })
 
 
