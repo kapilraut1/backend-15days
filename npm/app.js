@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const PORT=3000;
 const app = express();
-const hostRouter= require('./routes/hostRouter');
+const {hostRouter}= require('./routes/hostRouter');
 const userRouter= require('./routes/userRouter');
 //body parser middleware
 app.use(express.urlencoded({ extended: true }));
