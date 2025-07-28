@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/Channel.css" rel="stylesheet">
+    <title>Channel</title>
+</head>
+<body>
+    <%-include('partial/nav')%>
+        <h2><a href="/host/home">Home</a></h2>
+        <main>
+                
+        <h2>Here is our registered homes.</h2>
+
+        <ul>
+           <% if (registeredAddress && registeredAddress.length > 0) { %>
+    <% registeredAddress.forEach(home => { %>
+        <li><%= home %></li>
+    <% }) %>
+<% } else { %>
+    <li>No homes registered yet.</li>
+<% } %>
+
+        </ul>
+        
+        </main>
+</body>
+</html>
