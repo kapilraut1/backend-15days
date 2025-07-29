@@ -4,6 +4,7 @@ const PORT=3000;
 const app = express();
 const {hostRouter}= require('./routes/hostRouter');
 const userRouter= require('./routes/userRouter');
+const errController= require('./controllers/error');
 //body parser middleware
 app.set('view engine', 'ejs');
 app.set('views', 'views')
@@ -15,9 +16,7 @@ app.use(userRouter);
 const rootDir = require('./utils/pathUtil');
 app.use(express.static(path.join(rootDir, 'public')));
 
-app.use("/", (req, res)=>{
-    res.status(404).sendFile(path.join(rootDir, 'views', '404.html'));
-})
+app.use("/",errController.err);
 
 
 app.listen(PORT, ()=>{
