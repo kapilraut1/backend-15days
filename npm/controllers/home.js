@@ -1,17 +1,10 @@
-const express = require('express');
-let RegisteredAddress=[];
-const hostRouter = express.Router();
-
-hostRouter.get('/host/home', (req, res)=>{
+export const home =  (req, res)=>{
     res.sendFile(path.join(rootDir, 'views', 'Welcome.html'));
-})
-hostRouter.post('/host/home', (req, res) =>{
+}
+
+export const postHome=  (req, res) =>{
     console.log("form is received", req.body, req.body.name);
     RegisteredAddress.push(req.body.name);
     console.log("Registered Addresses:", RegisteredAddress);
     res.sendFile(path.join(rootDir, 'views', 'Received.html'));
-})
-
-
-exports.hostRouter = hostRouter;
-exports.RegisteredAddress = RegisteredAddress;
+}
